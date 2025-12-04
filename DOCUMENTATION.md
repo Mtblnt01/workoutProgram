@@ -790,17 +790,11 @@ class WorkoutController extends Controller
 php artisan make:model ModelName
 # Migration-nel
 php artisan make:model ModelName -m
-# Controller-rel
-php artisan make:model ModelName -c
-# Mindent egy parancsban
-php artisan make:model ModelName -mcf
 ```
 
 #### Controller Létrehozása
 ```bash
 php artisan make:controller ControllerName
-# Resource controller
-php artisan make:controller ControllerName --resource
 ```
 
 #### Migration Létrehozása
