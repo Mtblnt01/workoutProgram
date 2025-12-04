@@ -21,7 +21,9 @@ class AuthTest extends TestCase
     public function test_register_creates_user()
     {
         $payload = [
-            'email' => 'teszt@example.com'
+            'name' => 'Test User',
+            'email' => 'teszt@example.com',
+            'age' => 25
         ];
 
         $response = $this->postJson('/api/register', $payload);
@@ -29,7 +31,7 @@ class AuthTest extends TestCase
         $response->assertStatus(201)
                  ->assertJsonStructure([
                      'message',
-                     'user' => ['id', 'email']
+                     'user' => ['id', 'email', 'name', 'age']
                  ]);
 
         $this->assertDatabaseHas('users', [
@@ -54,7 +56,7 @@ class AuthTest extends TestCase
                  ->assertJsonStructure([
                      'message',
                      'user' => ['id', 'email'],
-                     'token'
+                     'access' => ['token', 'token_type']
                  ]);
 
         // Token létrejött?
@@ -88,7 +90,7 @@ class AuthTest extends TestCase
         ])->postJson('/api/logout');
 
         $response->assertStatus(200)
-                 ->assertJson(['message' => 'Logged out']);
+                 ->assertJson(['message' => 'Logout successful']);
 
         // token törlődött?
         $this->assertDatabaseMissing('personal_access_tokens', [
