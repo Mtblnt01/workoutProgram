@@ -132,71 +132,35 @@ Az API ekkor elérhető lesz: `http://localhost:8000/api`
 ### Autentikáció
 
 #### Regisztráció
-```http
-POST /api/register
-Content-Type: application/json
 
-{
-    "name": "Balint",
-    "email": "balint@gmail.com",
-    "age": 25
-}
-```
+<img width="381" height="247" alt="image" src="https://github.com/user-attachments/assets/d44d0744-4491-423d-bce9-796b179b8e5c" />
+<img width="342" height="148" alt="image" src="https://github.com/user-attachments/assets/6dd274b7-6999-4497-b1de-1420d8c26017" />
+
 
 **Válasz (201 Created):**
-```json
-{
-    "message": "User created successfully",
-    "user": {
-        "id": 1,
-        "name": "Balint",
-        "email": "balint@gmail.com",
-        "age": 25
-    }
-}
-```
+
+<img width="463" height="278" alt="image" src="https://github.com/user-attachments/assets/824280e0-c8dc-4da6-be54-b3463f0d4f93" />
+
 
 #### Bejelentkezés
-```http
-POST /api/login
-Content-Type: application/json
+<img width="415" height="258" alt="image" src="https://github.com/user-attachments/assets/ab5d1f32-872d-46af-b41f-a95f36f3749b" />
 
-{
-    "email": "balint@gmail.com"
-}
-```
 
 **Válasz (200 OK):**
-```json
-{
-    "message": "Login successful",
-    "user": {
-        "id": 1,
-        "name": "Balint",
-        "email": "balint@gmail.com",
-        "age": 25
-    },
-    "access": {
-        "token": "1|aBcDeFgHiJkLmNoPqRsTuVwXyZ",
-        "token_type": "Bearer"
-    }
-}
-```
+
+<img width="630" height="330" alt="image" src="https://github.com/user-attachments/assets/2627b515-5d84-41fd-a03c-dab12e3341e9" />
+
 
 #### Kijelentkezés
-```http
-POST /api/logout
-Authorization: Bearer <token>
-```
+
+<img width="455" height="341" alt="image" src="https://github.com/user-attachments/assets/985fab85-092a-4c08-87c8-8c600545182d" />
+
+
 
 **Válasz (200 OK):**
-```json
-{
-    "message": "Logout successful"
-}
-```
 
----
+<img width="403" height="178" alt="image" src="https://github.com/user-attachments/assets/522374f9-1b5a-47f0-9ba9-2214030d1334" />
+
 
 ### Felhasználó Kezelés
 
@@ -812,50 +776,8 @@ class WorkoutController extends Controller
 
 ### Test Fájlok
 
-#### UserTest
-**Fájl:** `tests/Feature/UserTest.php`
+<img width="518" height="549" alt="image" src="https://github.com/user-attachments/assets/e4ad0be5-448c-4317-9151-e5b872b9568d" />
 
-**Tesztek futtatása:**
-```bash
-# Összes UserTest teszt
-php artisan test --filter=UserTest
-
-# Konkrét teszt
-php artisan test --filter=test_me_requires_authentication
-
-# Verbose kimenet
-php artisan test tests/Feature/UserTest.php -v
-```
-
-**Teszt lista:**
-```
-✓ me requires authentication
-✓ me returns user data
-✓ user can update their own profile
-✓ any logged in user can get user list
-✓ user can view specific user
-✓ user can delete another user
-```
-
-**Teszt futtatása - teljes kimenet:**
-```bash
-cd c:\xampp1\htdocs\workoutProgram
-php artisan test --filter=UserTest
-```
-
-**Várható kimenet:**
-```
-   PASS  Tests\Feature\UserTest
-  ✓ me requires authentication                                      0.27s
-  ✓ me returns user data                                            0.05s
-  ✓ user can update their own profile                               0.03s
-  ✓ any logged in user can get user list                            0.02s
-  ✓ user can view specific user                                     0.02s
-  ✓ user can delete another user                                    0.02s
-
-  Tests:    6 passed (35 assertions)
-  Duration: 0.54s
-```
 
 ---
 
@@ -893,28 +815,10 @@ php artisan make:test TestName
 php artisan make:test TestName --unit
 ```
 
-#### Adatbázis Frissítése
-```bash
-# Összes migráció futtatása
-php artisan migrate
-
-# Összes migráció törlése és újrafuttatása
-php artisan migrate:fresh
-
-# Csak specifikus migráció futtatása
-php artisan migrate --path=database/migrations/file_name.php
-
-# Rollback
-php artisan migrate:rollback
-```
-
 #### Seeding
 ```bash
 # Adatbázis feltöltése teszt adatokkal
 php artisan db:seed
-
-# Specifikus seeder futtatása
-php artisan db:seed --class=UserSeeder
 
 # Fresh + Seed
 php artisan migrate:fresh --seed
@@ -927,15 +831,6 @@ php artisan test
 
 # Konkrét fájl
 php artisan test tests/Feature/UserTest.php
-
-# Konkrét teszt metódus
-php artisan test --filter=test_name
-
-# Verbose kimenet
-php artisan test -v
-
-# Verbose + detailed
-php artisan test --verbose --debug
 ```
 
 ---
@@ -1015,134 +910,3 @@ Route::middleware('auth:sanctum')->group(function () {
 ```
 
 ---
-
-## Hibakeresésa
-
-### Közös Hibák
-
-#### 1. "Call to undefined method createToken()"
-**Ok:** Hiányzik a `HasApiTokens` trait
-**Megoldás:** 
-```php
-use Laravel\Sanctum\HasApiTokens;
-
-class User extends Authenticatable {
-    use HasApiTokens;
-}
-```
-
-#### 2. "Field 'age' doesn't have a default value"
-**Ok:** Az `age` mező nem nullable az adatbázisban
-**Megoldás:**
-```php
-$table->integer('age')->nullable();
-```
-
-#### 3. "Call to undefined method enrollments()"
-**Ok:** Hiányzik a reláció a modellben
-**Megoldás:**
-```php
-public function enrollments()
-{
-    return $this->hasMany(UserWorkout::class);
-}
-```
-
-#### 4. "SQLSTATE[HY000]: General error: 1364"
-**Ok:** Migrációs probléma
-**Megoldás:**
-```bash
-php artisan migrate:fresh
-```
-
----
-
-## Postman Gyűjtemény
-
-Importálható Postman konfigurációk az API teszteléséhez.
-
-### Authentication Header
-Összes autentikált kéréshez:
-```
-Authorization: Bearer <token_from_login>
-```
-
-### Tesztelési Workflow
-
-1. **Regisztráció**
-   ```
-   POST http://localhost:8000/api/register
-   Body: {
-       "name": "Test User",
-       "email": "test@example.com",
-       "age": 25
-   }
-   ```
-
-2. **Bejelentkezés** (Másik email-lel)
-   ```
-   POST http://localhost:8000/api/login
-   Body: {
-       "email": "test@example.com"
-   }
-   ```
-
-3. **Profil Lekérése**
-   ```
-   GET http://localhost:8000/api/users/me
-   Header: Authorization: Bearer <token>
-   ```
-
-4. **Profil Frissítése**
-   ```
-   PUT http://localhost:8000/api/users/me
-   Header: Authorization: Bearer <token>
-   Body: {
-       "name": "Updated Name"
-   }
-   ```
-
-5. **Kijelentkezés**
-   ```
-   POST http://localhost:8000/api/logout
-   Header: Authorization: Bearer <token>
-   ```
-
----
-
-## További Információk
-
-### Dokumentáció
-- [Laravel Dokumentáció](https://laravel.com/docs)
-- [Laravel Sanctum](https://laravel.com/docs/11.x/sanctum)
-- [REST API Best Practices](https://restfulapi.net/)
-
-### Hasznos Parancsok - Cheat Sheet
-```bash
-# Szerver indítása
-php artisan serve
-
-# Tinker konzol (interaktív PHP)
-php artisan tinker
-
-# Cache törlése
-php artisan cache:clear
-
-# Config cache-elés
-php artisan config:cache
-
-# Artisan parancsok listája
-php artisan list
-
-# Adatbázis info
-php artisan db:show
-
-# Migrációs státusz
-php artisan migrate:status
-```
-
----
-
-**Dokumentáció frissítve:** 2025. december 4.
-**Verzió:** 1.0
-**Státusz:** Teljes funkcionalitás
