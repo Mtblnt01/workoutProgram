@@ -832,25 +832,9 @@ php artisan test tests/Feature/UserTest.php
 ### Environment Beállítások
 
 **.env fájl:**
-```env
-APP_NAME=WorkoutProgram
-APP_ENV=local
-APP_DEBUG=true
-APP_KEY=base64:...
-APP_URL=http://localhost:8000
 
-DB_CONNECTION=sqlite
-# vagy MySQL-hez:
-# DB_CONNECTION=mysql
-# DB_HOST=127.0.0.1
-# DB_PORT=3306
-# DB_DATABASE=workout_program
-# DB_USERNAME=root
-# DB_PASSWORD=
+<img width="238" height="128" alt="image" src="https://github.com/user-attachments/assets/89f7b0f9-9140-443e-975e-d65f1d443c71" />
 
-SANCTUM_STATEFUL_DOMAINS=localhost,127.0.0.1
-SANCTUM_GUARD=web
-```
 
 ---
 
