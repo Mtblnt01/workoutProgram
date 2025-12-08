@@ -8,12 +8,6 @@
 - Beiratkozások nyomon követése
 - Felhasználó profil kezelése
 
-### Technológia Stack
-- **Backend**: Laravel 11
-- **Adatbázis**: SQLite / MySQL
-- **API Autentikáció**: Laravel Sanctum
-- **Tesztelés**: PHPUnit
-
 ---
 
 ## Adatbázis Séma
