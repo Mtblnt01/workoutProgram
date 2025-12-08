@@ -1,16 +1,4 @@
-# 🏋️ Edzéstervező Alkalmazás - Teljes Dokumentáció
-
-## 📋 Tartalomjegyzék
-1. [Projekt Áttekintése](#projekt-áttekintése)
-2. [Adatbázis Séma](#adatbázis-séma)
-3. [Telepítés és Beállítás](#telepítés-és-beállítás)
-4. [API Végpontok](#api-végpontok)
-5. [Modellek](#modellek)
-6. [Controllerek](#controllerek)
-7. [Tesztek](#tesztek)
-8. [Fejlesztés](#fejlesztés)
-
----
+# Edzéstervező Alkalmazás - Teljes Dokumentáció
 
 ## Projekt Áttekintése
 
