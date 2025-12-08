@@ -97,20 +97,9 @@ cd workoutProgram
 composer install
 ```
 
-### 3. Environment Beállítása
-```bash
-cp .env.example .env
-php artisan key:generate
-```
-
-### 4. Adatbázis Migrációk Futtatása
+### 3. Adatbázis Migrációk Futtatása
 ```bash
 php artisan migrate
-```
-
-**Vagy az adatbázis nullázása (fejlesztéskor):**
-```bash
-php artisan migrate:fresh
 ```
 
 ### 5. Adatbázis Seedelése (Teszt Adatok)
@@ -788,8 +777,6 @@ class WorkoutController extends Controller
 #### Model Létrehozása
 ```bash
 php artisan make:model ModelName
-# Migration-nel
-php artisan make:model ModelName -m
 ```
 
 #### Controller Létrehozása
@@ -805,17 +792,12 @@ php artisan make:migration create_table_name
 #### Teszt Létrehozása
 ```bash
 php artisan make:test TestName
-# Feature test
-php artisan make:test TestName --unit
 ```
 
 #### Seeding
 ```bash
 # Adatbázis feltöltése teszt adatokkal
 php artisan db:seed
-
-# Fresh + Seed
-php artisan migrate:fresh --seed
 ```
 
 #### Tesztek Futtatása
