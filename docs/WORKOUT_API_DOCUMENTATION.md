@@ -49,7 +49,9 @@ Response:  401 Unauthorized
 Új felhasználó regisztrálása.  Jelszó megadása nem szükséges.  Az email címnek egyedinek kell lennie.  Alapértelmezett role: `student`.
 
 <img width="413" height="270" alt="image" src="https://github.com/user-attachments/assets/53301d4c-6a86-4ce2-a848-78142ff46c94" />
+
 <img width="371" height="197" alt="image" src="https://github.com/user-attachments/assets/eb4d24a2-5272-4f04-b4be-d8887d915cde" />
+
 <img width="391" height="235" alt="image" src="https://github.com/user-attachments/assets/d4ad441d-a8c0-4e74-abb1-ec4ad806ddac" />
 
 
@@ -87,6 +89,7 @@ Válasz (sikertelen bejelentkezés esetén): `401 Unauthorized`
 A jelenlegi autentikált felhasználó kijelentkeztetése, a felhasználó tokenjének törlése.  Ha a token érvénytelen, a fent meghatározott általános `401 Unauthorized` hibát kell visszaadnia. 
 
 Válasz (sikeres kijelentkezés esetén): `200 OK`
+
 <img width="356" height="147" alt="image" src="https://github.com/user-attachments/assets/f5230dfd-7fca-41a6-81b4-048d3b5f1afd" />
 
 
@@ -108,10 +111,12 @@ Saját felhasználói profil és edzésstatisztikák lekérése.
 Saját felhasználói adatok frissítése.  Az aktuális felhasználó módosíthatja a nevét és/vagy e-mail címét.
 
 Kérés törzse:
+
 <img width="362" height="264" alt="image" src="https://github.com/user-attachments/assets/379af4c0-9ba3-4d76-9208-007399d11e8c" />
 
 
 Válasz (sikeres frissítés): `200 OK`
+
 <img width="403" height="249" alt="image" src="https://github.com/user-attachments/assets/5c5316aa-0387-4386-b687-34984ab75ef2" />
 
 
@@ -126,6 +131,7 @@ Válasz (sikeres frissítés): `200 OK`
 Az összes felhasználó listájának lekérése.
 
 Válasz: `200 OK`
+
 <img width="476" height="1172" alt="image" src="https://github.com/user-attachments/assets/fc8630c2-d17a-453a-946a-ee8bc387069f" />
 
 ```
