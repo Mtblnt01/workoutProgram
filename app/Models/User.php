@@ -54,4 +54,14 @@ class User extends Authenticatable
     {
         return $this->hasMany(\App\Models\UserWorkout::class, 'user_id');
     }
+
+    /**
+     * Many-to-Many reláció: a felhasználó edzéseihez.
+     */
+    public function workouts()
+    {
+        return $this->belongsToMany(\App\Models\Workout::class, 'user_workouts', 'user_id', 'workout_id')
+                    ->withPivot('progress', 'last_done', 'completed_at')
+                    ->withTimestamps();
+    }
 }

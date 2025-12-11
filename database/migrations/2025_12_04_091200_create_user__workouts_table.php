@@ -17,6 +17,7 @@ return new class extends Migration
         $table->foreignId('workout_id')->constrained()->onDelete('cascade');
         $table->integer('progress')->default(0); // percentage
         $table->date('last_done')->nullable();
+        $table->timestamp('completed_at')->nullable();
         $table->timestamps();
     });
     }

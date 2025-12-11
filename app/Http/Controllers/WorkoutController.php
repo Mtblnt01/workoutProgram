@@ -60,7 +60,7 @@ class WorkoutController extends Controller
 
         // Ellenőrizni, hogy már hozzárendelték-e
         if ($user->workouts()->where('workout_id', $workout->id)->exists()) {
-            return response()->json(['message' => 'Already enrolled in this workout'], 409);
+            return response()->json(['message' => 'Already enrolled'], 422);
         }
 
         // Hozzáadás alap progress értékkel
@@ -69,7 +69,7 @@ class WorkoutController extends Controller
             'last_done' => null
         ]);
 
-        return response()->json(['message' => 'Successfully enrolled into workout']);
+        return response()->json(['message' => 'Enrolled successfully'], 201);
     }
 
     /**
@@ -85,25 +85,18 @@ class WorkoutController extends Controller
             ->first();
 
         if (! $record) {
-            return response()->json(['message' => 'Not enrolled in this workout'], 403);
+            return response()->json(['message' => 'Not enrolled'], 404);
         }
 
-        // Ha már teljesen kész (progress = 100)
-        if ($record->progress >= 100) {
-            return response()->json(['message' => 'Workout already completed'], 409);
-        }
-
-        // Progress növelése (pl. +25 minden teljesítés)
-        $newProgress = min(100, $record->progress + 25);
-
+        // Progress beállítása 100%-ra és completed_at kitöltése
         $record->update([
-            'progress'  => $newProgress,
+            'progress'  => 100,
             'last_done' => now(),
+            'completed_at' => now()
         ]);
 
         return response()->json([
-            'message' => 'Workout progress updated',
-            'progress' => $newProgress
+            'message' => 'Workout marked as completed'
         ]);
     }
 }

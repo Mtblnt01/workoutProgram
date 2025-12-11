@@ -17,11 +17,13 @@ class Workout extends Model
 
     public function enrollments()
     {
-        return $this->hasMany(Enrollment::class);
+        return $this->hasMany(UserWorkout::class);
     }
 
     public function users()
     {
-        return $this->belongsToMany(User::class, 'enrollments');
+        return $this->belongsToMany(User::class, 'user_workouts', 'workout_id', 'user_id')
+                    ->withPivot('progress', 'last_done', 'completed_at')
+                    ->withTimestamps();
     }
 }

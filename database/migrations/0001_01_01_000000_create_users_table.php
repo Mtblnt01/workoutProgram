@@ -15,7 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
-            $table->integer('age');
+            $table->integer('age')->nullable();
+            $table->enum('role', ['student', 'admin'])->default('student');
             $table->softDeletes();
             $table->timestamps();
         });

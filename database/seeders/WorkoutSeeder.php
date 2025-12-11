@@ -10,26 +10,18 @@ class WorkoutSeeder extends Seeder
 {
     public function run()
     {
-        $users = User::factory(10)->create();
-        $workouts = Workout::factory(10)->create();
-
-        // Users
-        $user1 = User::create([
-            'name' => 'Bálint',
-            'email' => 'balint@example.com',
-            'age' => 22
+        // Admin felhasználó
+        $admin = User::create([
+            'name' => 'Admin User',
+            'email' => 'admin@example.com',
+            'age' => 30,
+            'role' => 'admin'
         ]);
 
-        $user2 = User::create([
-            'name' => 'Krisztián',
-            'email' => 'krisztian@example.com',
-            'age' => 25
-        ]);
-
-        // Workouts
+        // Edzések
         $w1 = Workout::create([
             'title' => 'Chest Day',
-            'description' => 'Bench, incline, flys',
+            'description' => 'Bench press, incline press, flys',
             'difficulty' => 'hard'
         ]);
 
@@ -39,15 +31,57 @@ class WorkoutSeeder extends Seeder
             'difficulty' => 'medium'
         ]);
 
-        // Attach with pivot
-        $user1->workouts()->attach($w1->id, [
-            'progress' => 40,
-            'last_done' => '2025-01-28'
+        $w3 = Workout::create([
+            'title' => 'Back Day',
+            'description' => 'Deadlift, pull-ups, rows',
+            'difficulty' => 'hard'
         ]);
 
-        $user2->workouts()->attach($w2->id, [
-            'progress' => 10,
-            'last_done' => '2025-01-26'
+        $w4 = Workout::create([
+            'title' => 'Cardio Session',
+            'description' => 'Running, cycling, elliptical',
+            'difficulty' => 'easy'
+        ]);
+
+        // Felhasználók lekérése (korábban létrehozottak)
+        $user1 = User::where('email', 'balint@example.com')->first();
+        $user2 = User::where('email', 'janos@example.com')->first();
+        $user3 = User::where('email', 'peter@example.com')->first();
+
+        // Beiratkozások
+        if ($user1) {
+            $user1->workouts()->attach($w1->id, [
+                'progress' => 40,
+                'last_done' => '2025-01-28'
+            ]);
+            $user1->workouts()->attach($w4->id, [
+                'progress' => 50,
+                'last_done' => '2025-01-25'
+            ]);
+        }
+
+        if ($user2) {
+            $user2->workouts()->attach($w2->id, [
+                'progress' => 10,
+                'last_done' => '2025-01-26'
+            ]);
+            $user2->workouts()->attach($w4->id, [
+                'progress' => 30,
+                'last_done' => '2025-01-24'
+            ]);
+        }
+
+        if ($user3) {
+            $user3->workouts()->attach($w3->id, [
+                'progress' => 75,
+                'last_done' => '2025-01-27'
+            ]);
+        }
+
+        // Admin felhasználó összes edzéshez hozzáfér
+        $admin->workouts()->attach([$w1->id, $w2->id, $w3->id, $w4->id], [
+            'progress' => 100,
+            'last_done' => now()
         ]);
     }
 }

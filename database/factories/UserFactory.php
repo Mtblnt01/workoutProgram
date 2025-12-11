@@ -18,6 +18,19 @@ class UserFactory extends Factory
             'name' => $this->faker->firstName . ' ' . $this->faker->lastName, // magyaros teljes név
             'email' => $this->faker->unique()->safeEmail(),
             'age' => $this->faker->numberBetween(14, 60),
+            'role' => 'student', // alapértelmezetten student
         ];
+    }
+
+    /**
+     * Admin felhasználó factory state
+     */
+    public function admin()
+    {
+        return $this->state(function (array $attributes) {
+            return [
+                'role' => 'admin',
+            ];
+        });
     }
 }
