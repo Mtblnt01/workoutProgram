@@ -200,29 +200,8 @@ Válasz (ha a felhasználó nem található): `404 Not Found`
 Az összes elérhető edzésprogram listájának lekérése.
 
 Válasz: `200 OK`
-```json
-{
-  "workouts": [
-    {
-      "id": 1,
-      "title": "Kezdő Full Body",
-      "description": "Teljes test edzés kezdőknek",
-      "difficulty": "easy"
-    },
-    {
-      "id": 2,
-      "title": "Haladó erősítő",
-      "description": "Intenzív erősítő edzés haladóknak",
-      "difficulty": "hard"
-    },
-    {
-      "id":  3,
-      "title":  "Cardio mix",
-      "description": "Vegyes kardió edzés",
-      "difficulty": "medium"
-    }
-  ]
-}
+<img width="540" height="609" alt="image" src="https://github.com/user-attachments/assets/6190f27c-2071-43a5-b638-3b76076f783f" />
+
 ```
 
 ---
@@ -232,28 +211,8 @@ Válasz: `200 OK`
 Információk lekérése egy adott edzésprogramról és a hozzá csatlakozott felhasználókról.
 
 Válasz: `200 OK`
-```json
-{
-    "workout": {
-        "title": "Kezdő Full Body",
-        "description": "Teljes test edzés kezdőknek",
-        "difficulty": "easy"
-    },
-    "students": [
-        {
-            "name": "Kiss János",
-            "email": "janos@example. com",
-            "progress": 75,
-            "last_done": "2025-12-10"
-        },
-        {
-            "name": "Nagy Anna",
-            "email": "anna@example.com",
-            "progress": 25,
-            "last_done":  "2025-12-08"
-        }
-    ]
-}
+<img width="518" height="537" alt="image" src="https://github.com/user-attachments/assets/3e5b443d-05b7-48a1-8c22-8112cd771663" />
+
 ```
 
 Automatikus válasz (ha az edzésprogram nem található): `404 Not Found`
