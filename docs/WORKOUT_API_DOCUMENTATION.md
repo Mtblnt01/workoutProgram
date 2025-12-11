@@ -1,7 +1,3 @@
-Rendben! Itt van a **TELJES DOKUMENTÁCIÓ** PONTOSAN a repository kódja alapján, admin funkcionalitással kiegészítve!  Másold be egy `.md` fájlba!  📄
-
----
-
 # Edzésprogram REST API megvalósítása Laravel környezetben
 
 **base_url:** `http://127.0.0.1:8000/api`
