@@ -48,40 +48,16 @@ Response:  401 Unauthorized
 
 Új felhasználó regisztrálása.  Jelszó megadása nem szükséges.  Az email címnek egyedinek kell lennie.  Alapértelmezett role: `student`.
 
-Kérés Törzse:
-```json
-{
-    "name": "Kiss János",
-    "email": "janos@example.com",
-    "age": 25
-}
-```
+<img width="413" height="270" alt="image" src="https://github.com/user-attachments/assets/53301d4c-6a86-4ce2-a848-78142ff46c94" />
+<img width="371" height="197" alt="image" src="https://github.com/user-attachments/assets/eb4d24a2-5272-4f04-b4be-d8887d915cde" />
+<img width="391" height="235" alt="image" src="https://github.com/user-attachments/assets/d4ad441d-a8c0-4e74-abb1-ec4ad806ddac" />
 
-Válasz (sikeres regisztráció esetén): `201 Created`
-```json
-{
-    "message": "User created successfully",
-    "user":  {
-        "id": 1,
-        "name": "Kiss János",
-        "email": "janos@example.com",
-        "age": 25,
-        "role": "student"
-    }
-}
-```
+
 
 Automatikus válasz felüldefiniálása (ha az e-mail cím már foglalt): `422 Unprocessable Entity`
-```json
-{
-  "message": "Failed to register user",
-  "errors": {
-    "email": [
-      "The email has already been taken."
-    ]
-  }
-}
-```
+
+<img width="406" height="226" alt="image" src="https://github.com/user-attachments/assets/52526bbb-8ceb-429e-888a-e4f3a17c3281" />
+
 
 ---
 
@@ -89,37 +65,16 @@ Automatikus válasz felüldefiniálása (ha az e-mail cím már foglalt): `422 U
 
 Bejelentkezés csak e-mail címmel (jelszó nélkül).
 
-Kérés Törzse:
-```json
-{
-  "email": "janos@example.com"
-}
-```
+<img width="372" height="249" alt="image" src="https://github.com/user-attachments/assets/a62702a3-5065-4565-a071-80a55d53a7b0" />
+
 
 Válasz (sikeres bejelentkezés esetén): `200 OK`
-```json
-{
-    "message": "Login successful",
-    "user": {
-        "id":  1,
-        "name":  "Kiss János",
-        "email": "janos@example.com",
-        "age": 25,
-        "role": "student"
-    },
-    "access":  {
-        "token": "2|7Fbr79b5zn8RxMfOqfdzZ31SnGWvgDidjahbdRfL2a98cfd8",
-        "token_type": "Bearer"
-    }
-}
-```
+<img width="602" height="312" alt="image" src="https://github.com/user-attachments/assets/32a8b9e2-c050-439f-b642-fa46d1753bd6" />
+
 
 Válasz (sikertelen bejelentkezés esetén): `401 Unauthorized`
-```json
-{
-  "message": "Invalid email"
-}
-```
+<img width="306" height="150" alt="image" src="https://github.com/user-attachments/assets/a1fde19d-9381-42e5-ae10-be48836f029b" />
+
 
 ---
 
@@ -132,11 +87,8 @@ Válasz (sikertelen bejelentkezés esetén): `401 Unauthorized`
 A jelenlegi autentikált felhasználó kijelentkeztetése, a felhasználó tokenjének törlése.  Ha a token érvénytelen, a fent meghatározott általános `401 Unauthorized` hibát kell visszaadnia. 
 
 Válasz (sikeres kijelentkezés esetén): `200 OK`
-```json
-{
-  "message": "Logout successful"
-}
-```
+<img width="356" height="147" alt="image" src="https://github.com/user-attachments/assets/f5230dfd-7fca-41a6-81b4-048d3b5f1afd" />
+
 
 ---
 
@@ -144,20 +96,10 @@ Válasz (sikeres kijelentkezés esetén): `200 OK`
 
 Saját felhasználói profil és edzésstatisztikák lekérése.
 
-Válasz:  `200 OK`
-```json
-{
-    "user": {
-        "id": 1,
-        "name": "Kiss János",
-        "email": "janos@example.com"
-    },
-    "stats": {
-        "enrolledCourses": 3,
-        "completedCourses": 1
-    }
-}
-```
+<img width="446" height="307" alt="image" src="https://github.com/user-attachments/assets/6cf66492-d26e-4f80-86ff-7950b33b16ac" />
+
+<img width="385" height="291" alt="image" src="https://github.com/user-attachments/assets/6e757ded-4d21-4fcc-a3d1-f3b43afaf973" />
+
 
 ---
 
@@ -166,24 +108,12 @@ Válasz:  `200 OK`
 Saját felhasználói adatok frissítése.  Az aktuális felhasználó módosíthatja a nevét és/vagy e-mail címét.
 
 Kérés törzse:
-```json
-{
-  "name": "Kiss János Péter",
-  "email": "ujmail@example.com"
-}
-```
+<img width="362" height="264" alt="image" src="https://github.com/user-attachments/assets/379af4c0-9ba3-4d76-9208-007399d11e8c" />
+
 
 Válasz (sikeres frissítés): `200 OK`
-```json
-{
-  "message": "Profile updated successfully",
-  "user": {
-    "id": 1,
-    "name": "Kiss János Péter",
-    "email": "ujmail@example.com"
-  }
-}
-```
+<img width="403" height="249" alt="image" src="https://github.com/user-attachments/assets/5c5316aa-0387-4386-b687-34984ab75ef2" />
+
 
 *Hibák: *
 - `422 Unprocessable Entity` – érvénytelen vagy hiányzó mezők, vagy az e-mail már foglalt
@@ -196,26 +126,8 @@ Válasz (sikeres frissítés): `200 OK`
 Az összes felhasználó listájának lekérése.
 
 Válasz: `200 OK`
-```json
-{
-    "users": [
-        {
-            "id": 1,
-            "name": "Kiss János",
-            "email": "janos@example.com"
-        },
-        {
-            "id": 2,
-            "name": "Nagy Anna",
-            "email": "anna@example.com"
-        },
-        {
-            "id":  3,
-            "name":  "Kovács Péter",
-            "email": "peter@example.com"
-        }
-    ]
-}
+<img width="476" height="1172" alt="image" src="https://github.com/user-attachments/assets/fc8630c2-d17a-453a-946a-ee8bc387069f" />
+
 ```
 
 ---
