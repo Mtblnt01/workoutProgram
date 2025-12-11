@@ -1596,29 +1596,6 @@ class WorkoutTest extends TestCase
 
 `workoutProgram>php artisan test`
 
----
+<img width="368" height="616" alt="image" src="https://github.com/user-attachments/assets/76bbf666-b524-4dd0-bf5c-41d51b6bd773" />
 
-## Dokumentálás
 
-A projekt dokumentálása több módon történhet:
-
-### 1. Word dokumentum
-- Végpontok részletes leírása
-- Példa kérések és válaszok
-- Hibakezelési táblázat
-
-### 2. Markdown (README. md)
-- Projektleírás / fejlesztői dokumentáció
-- Telepítési útmutató
-- API referencia
-
-### 3. API dokumentáció generáló eszközök
-- **Scribe** - Laravel-specifikus
-- **Swagger/OpenAPI** - Iparági szabvány
-- **Postman Collection** - Interaktív tesztelés
-
----
-
-**KÉSZ!  Ez a teljes, részletes dokumentáció a `Mtblnt01/workoutProgram` repository számára, PONTOSAN a meglévő kód alapján, admin szerepkörrel kiegészítve! ** 
-
-Másold be egy `DOCUMENTATION.md` fájlba!  🚀✅
